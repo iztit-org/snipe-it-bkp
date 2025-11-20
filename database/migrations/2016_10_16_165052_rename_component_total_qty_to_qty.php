@@ -12,10 +12,10 @@ class RenameComponentTotalQtyToQty extends Migration
      */
     public function up()
     {
-        Schema::table('components', function (Blueprint $table) {
-            //
-            $table->renameColumn('total_qty', 'qty');
-        });
+        // Schema::table('components', function (Blueprint $table) {
+        //     //
+        //     $table->renameColumn('total_qty', 'qty');
+        // });
     }
 
     /**
@@ -25,9 +25,9 @@ class RenameComponentTotalQtyToQty extends Migration
      */
     public function down()
     {
-        Schema::table('components', function (Blueprint $table) {
-            //
-            $table->renameColumn('qty', 'total_qty');
-        });
+        // Schema::table('components', function (Blueprint $table) {
+        //     //
+        //     $table->renameColumn('qty', 'total_qty');
+        // });
     }
 }
