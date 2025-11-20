@@ -34,15 +34,15 @@ class AddSupplierToComponents extends Migration
     public function down()
     {
         Schema::table('components', function (Blueprint $table) {
-            if (Schema::hasColumn('components', 'supplier_id')) {
+            // if (Schema::hasColumn('components', 'supplier_id')) {
                 $table->dropColumn('supplier_id');
-            }
+            // }
         });
 
         Schema::table('consumables', function (Blueprint $table) {
-            if (Schema::hasColumn('consumables', 'supplier_id')) {
+            // if (Schema::hasColumn('consumables', 'supplier_id')) {
                 $table->dropColumn('supplier_id');
-            }
+            // }
         });
     }
 }
