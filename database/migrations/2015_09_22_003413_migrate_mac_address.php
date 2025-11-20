@@ -15,24 +15,24 @@ class MigrateMacAddress extends Migration
     public function up()
     {
         // Create the custom fieldset and field as before
-        $f2 = new \App\Models\CustomFieldset(['name' => 'Asset with MAC Address']);
-        $f2->timestamps = false; // when originally created it had no timestamps
-        if (! $f2->save()) {
-            throw new Exception("couldn't save customfieldset");
-        }
+        // $f2 = new \App\Models\CustomFieldset(['name' => 'Asset with MAC Address']);
+        // $f2->timestamps = false; // when originally created it had no timestamps
+        // if (! $f2->save()) {
+        //     throw new Exception("couldn't save customfieldset");
+        // }
 
-        $macid = DB::table('custom_fields')->insertGetId([
-            'name'   => 'MAC Address',
-            'format' => \App\Models\CustomField::PREDEFINED_FORMATS['MAC'],
-            'element'=> 'text',
-        ]);
+        // $macid = DB::table('custom_fields')->insertGetId([
+        //     'name'   => 'MAC Address',
+        //     'format' => \App\Models\CustomField::PREDEFINED_FORMATS['MAC'],
+        //     'element'=> 'text',
+        // ]);
 
-        if (! $macid) {
-            throw new Exception("Can't save MAC Custom field: $macid");
-        }
+        // if (! $macid) {
+        //     throw new Exception("Can't save MAC Custom field: $macid");
+        // }
 
-        $f2->fields()->attach($macid, ['required' => false, 'order' => 1]);
-        \App\Models\AssetModel::where(['show_mac_address' => true])->update(['fieldset_id' => $f2->id]);
+        // $f2->fields()->attach($macid, ['required' => false, 'order' => 1]);
+        // \App\Models\AssetModel::where(['show_mac_address' => true])->update(['fieldset_id' => $f2->id]);
 
         // === IMPORTANT: use raw ALTER TABLE to avoid Doctrine / information_schema introspection ===
         // Adjust the column types below if your DB uses different definitions.
@@ -57,13 +57,13 @@ class MigrateMacAddress extends Migration
      */
     public function down()
     {
-        $f = \App\Models\CustomFieldset::where(['name' => 'Asset with MAC Address'])->first();
+        // $f = \App\Models\CustomFieldset::where(['name' => 'Asset with MAC Address'])->first();
 
-        if ($f) {
-            // detach/delete pivot entries first if necessary
-            $f->fields()->delete();
-            $f->delete();
-        }
+        // if ($f) {
+        //     // detach/delete pivot entries first if necessary
+        //     $f->fields()->delete();
+        //     $f->delete();
+        // }
 
         // Rename models.deprecated_mac_address -> show_mac_address (restore)
         if (Schema::hasColumn('models', 'deprecated_mac_address')) {
