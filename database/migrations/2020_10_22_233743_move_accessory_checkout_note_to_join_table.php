@@ -16,12 +16,12 @@ class MoveAccessoryCheckoutNoteToJoinTable extends Migration
     public function up()
     {
 
-        if (!Schema::hasColumn('accessories_users', 'note'))
+        // if (!Schema::hasColumn('accessories_users', 'note'))
         {
             Schema::table('accessories_users', function (Blueprint $table) {
                 $table->string('note')->nullable(true)->default(null);
             });
-        }
+        // }
 
 
         
@@ -84,7 +84,7 @@ class MoveAccessoryCheckoutNoteToJoinTable extends Migration
     public function down()
     {
 
-        if (Schema::hasColumn('accessories_users', 'note'))
+        // if (Schema::hasColumn('accessories_users', 'note'))
         {
             Schema::table('accessories_users', function (Blueprint $table)
             {
