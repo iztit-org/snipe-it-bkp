@@ -73,12 +73,12 @@ return new class extends Migration
         return [
             // 'companies',
             // 'imports',
-            'kits',
-            'kits_accessories',
-            'kits_consumables',
-            'kits_licenses',
-            'kits_models',
-            'users_groups',
+            // 'kits',
+            // 'kits_accessories',
+            // 'kits_consumables',
+            // 'kits_licenses',
+            // 'kits_models',
+            // 'users_groups',
         ];
     }
 };
