@@ -14,9 +14,9 @@ class RemoveOptionValueFromSettingsTable extends Migration
     {
         Schema::table('settings', function (Blueprint $table) {
             //
-            if (Schema::hasColumn('settings', 'option_value')) {
+            // if (Schema::hasColumn('settings', 'option_value')) {
                 $table->dropColumn('option_value');
-            }
+            // }
         });
     }
 
