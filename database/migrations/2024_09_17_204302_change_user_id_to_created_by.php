@@ -65,7 +65,7 @@ return new class extends Migration
             'settings',
             'status_labels',
             'suppliers',
-            'users',
+            // 'users',
         ];
     }
 
