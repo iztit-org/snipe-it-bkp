@@ -39,15 +39,15 @@ class MigrateMacAddress extends Migration
 
         // Rename assets.mac_address -> _snipeit_mac_address
         // (assumes original mac_address is VARCHAR(255) NULL)
-        if (Schema::hasColumn('assets', 'mac_address')) {
-            DB::statement("ALTER TABLE `assets` CHANGE `mac_address` `_snipeit_mac_address` VARCHAR(255) NULL");
-        }
+        // if (Schema::hasColumn('assets', 'mac_address')) {
+        //     DB::statement("ALTER TABLE `assets` CHANGE `mac_address` `_snipeit_mac_address` VARCHAR(255) NULL");
+        // }
 
         // Rename models.show_mac_address -> deprecated_mac_address
         // (assumes original show_mac_address is TINYINT(1) NOT NULL DEFAULT 0)
-        if (Schema::hasColumn('models', 'show_mac_address')) {
-            DB::statement("ALTER TABLE `models` CHANGE `show_mac_address` `deprecated_mac_address` TINYINT(1) NOT NULL DEFAULT 0");
-        }
+        // if (Schema::hasColumn('models', 'show_mac_address')) {
+        //     DB::statement("ALTER TABLE `models` CHANGE `show_mac_address` `deprecated_mac_address` TINYINT(1) NOT NULL DEFAULT 0");
+        // }
     }
 
     /**
@@ -66,13 +66,13 @@ class MigrateMacAddress extends Migration
         // }
 
         // Rename models.deprecated_mac_address -> show_mac_address (restore)
-        if (Schema::hasColumn('models', 'deprecated_mac_address')) {
-            DB::statement("ALTER TABLE `models` CHANGE `deprecated_mac_address` `show_mac_address` TINYINT(1) NOT NULL DEFAULT 0");
-        }
+        // if (Schema::hasColumn('models', 'deprecated_mac_address')) {
+        //     DB::statement("ALTER TABLE `models` CHANGE `deprecated_mac_address` `show_mac_address` TINYINT(1) NOT NULL DEFAULT 0");
+        // }
 
         // Rename assets._snipeit_mac_address -> mac_address (restore)
-        if (Schema::hasColumn('assets', '_snipeit_mac_address')) {
-            DB::statement("ALTER TABLE `assets` CHANGE `_snipeit_mac_address` `mac_address` VARCHAR(255) NULL");
-        }
+        // if (Schema::hasColumn('assets', '_snipeit_mac_address')) {
+        //     DB::statement("ALTER TABLE `assets` CHANGE `_snipeit_mac_address` `mac_address` VARCHAR(255) NULL");
+        // }
     }
 }

@@ -14,11 +14,11 @@ class AddMacAddressToAsset extends Migration
     {
         //
         Schema::table('assets', function ($table) {
-            $table->string('mac_address')->nullable()->default(null);
+            $table->string('_snipeit_mac_address')->nullable()->default(null);
         });
 
         Schema::table('models', function ($table) {
-            $table->boolean('show_mac_address')->default(0);
+            $table->boolean('deprecated_mac_address')->default(0);
         });
     }
 
@@ -31,11 +31,11 @@ class AddMacAddressToAsset extends Migration
     {
         //
         Schema::table('assets', function ($table) {
-            $table->dropColumn('mac_address');
+            $table->dropColumn('_snipeit_mac_address');
         });
 
         Schema::table('models', function ($table) {
-            $table->dropColumn('show_mac_address');
+            $table->dropColumn('deprecated_mac_address');
         });
     }
 }
