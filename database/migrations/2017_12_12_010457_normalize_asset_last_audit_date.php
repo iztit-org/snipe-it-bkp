@@ -13,11 +13,11 @@ class NormalizeAssetLastAuditDate extends Migration
      */
     public function up()
     {
-        if (! Schema::hasColumn('assets', 'last_audit_date')) {
+        // if (! Schema::hasColumn('assets', 'last_audit_date')) {
             Schema::table('assets', function (Blueprint $table) {
                 $table->datetime('last_audit_date')->after('assigned_type')->nullable()->default(null);
             });
-        }
+        // }
     }
 
     /**
@@ -27,10 +27,10 @@ class NormalizeAssetLastAuditDate extends Migration
      */
     public function down()
     {
-        if (Schema::hasColumn('assets', 'last_audit_date')) {
+        // if (Schema::hasColumn('assets', 'last_audit_date')) {
             Schema::table('assets', function (Blueprint $table) {
                 $table->dropColumn('last_audit_date');
             });
-        }
+        // }
     }
 }
