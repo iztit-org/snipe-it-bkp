@@ -12,10 +12,10 @@ class RenameModelNoteToNotes extends Migration
      */
     public function up()
     {
-        Schema::table('models', function (Blueprint $table) {
-            //
-            $table->renameColumn('note', 'notes');
-        });
+        // Schema::table('models', function (Blueprint $table) {
+        //     //
+        //     $table->renameColumn('note', 'notes');
+        // });
     }
 
     /**
@@ -25,9 +25,9 @@ class RenameModelNoteToNotes extends Migration
      */
     public function down()
     {
-        Schema::table('models', function (Blueprint $table) {
-            //
-            $table->renameColumn('notes', 'note');
-        });
+        // Schema::table('models', function (Blueprint $table) {
+        //     //
+        //     $table->renameColumn('notes', 'note');
+        // });
     }
 }

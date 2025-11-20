@@ -13,7 +13,7 @@ class AddNotesToModels extends Migration
     public function up()
     {
         Schema::table('models', function ($table) {
-            $table->text('note')->nullable()->default(null);
+            $table->text('notes')->nullable()->default(null);
         });
     }
 
@@ -25,7 +25,7 @@ class AddNotesToModels extends Migration
     public function down()
     {
         Schema::table('models', function ($table) {
-            $table->dropColumn('note');
+            $table->dropColumn('notes');
         });
     }
 }
