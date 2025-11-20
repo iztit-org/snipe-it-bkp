@@ -18,7 +18,7 @@ class MoveAccessoryCheckoutNoteToJoinTable extends Migration
 
         // if (!Schema::hasColumn('accessories_users', 'note'))
         // {
-            Schema::table('accessories_checkout', function (Blueprint $table) {
+            Schema::table('accessories_users', function (Blueprint $table) {
                 $table->string('note')->nullable(true)->default(null);
             });
         // }
@@ -38,15 +38,15 @@ class MoveAccessoryCheckoutNoteToJoinTable extends Migration
             $count++;
 
             \Log::debug('Querying join logs');
-            $join_logs = DB::table('accessories_checkout')->get();
+            $join_logs = DB::table('accessories_users')->get();
 
-            // Loop through the accessories_checkout records
+            // Loop through the accessories_users records
             foreach ($join_logs as $join_log) {
                 \Log::debug($join_logs->count().' join log records');
-                \Log::debug('Looking for accessories_checkout that match '.$join_log->created_at);
+                \Log::debug('Looking for accessories_users that match '.$join_log->created_at);
 
                 // Get the records from action_logs so we can copy the notes over to the new notes field
-                // on the accessories_checkout table
+                // on the accessories_users table
                 $action_log_entries = Actionlog::where('created_at', '=', $join_log->created_at)
                     ->where('target_id', '=', $join_log->assigned_to)
                     ->where('item_id', '=', $accessory->id)
@@ -65,7 +65,7 @@ class MoveAccessoryCheckoutNoteToJoinTable extends Migration
                     \Log::debug('Join log: '.$join_log->created_at);
 
                     if ($action_log_entry->created_at == $join_log->created_at) {
-                        DB::table('accessories_checkout')
+                        DB::table('accessories_users')
                             ->where('id', $join_log->id)
                             ->update(['note' => $action_log_entry->note]);
                     } else {
