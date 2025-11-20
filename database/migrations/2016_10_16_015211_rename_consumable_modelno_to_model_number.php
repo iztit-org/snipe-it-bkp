@@ -12,10 +12,10 @@ class RenameConsumableModelnoToModelNumber extends Migration
      */
     public function up()
     {
-        Schema::table('consumables', function (Blueprint $table) {
-            //
-            $table->renameColumn('model_no', 'model_number');
-        });
+        // Schema::table('consumables', function (Blueprint $table) {
+        //     //
+        //     $table->renameColumn('model_no', 'model_number');
+        // });
     }
 
     /**
@@ -25,9 +25,9 @@ class RenameConsumableModelnoToModelNumber extends Migration
      */
     public function down()
     {
-        Schema::table('consumables', function (Blueprint $table) {
-            //
-            $table->renameColumn('model_number', 'model_no');
-        });
+        // Schema::table('consumables', function (Blueprint $table) {
+        //     //
+        //     $table->renameColumn('model_number', 'model_no');
+        // });
     }
 }
