@@ -13,9 +13,9 @@ class AddSlackToSettings extends Migration
     public function up()
     {
         Schema::table('settings', function (Blueprint $table) {
-            $table->string('slack_endpoint')->nullable()->default(null);
-            $table->string('slack_channel')->nullable()->default(null);
-            $table->string('slack_botname')->nullable()->default(null);
+            $table->string('webhook_endpoint')->nullable()->default(null);
+            $table->string('webhook_channel')->nullable()->default(null);
+            $table->string('webhook_botname')->nullable()->default(null);
         });
     }
 
@@ -28,9 +28,9 @@ class AddSlackToSettings extends Migration
     {
         Schema::table('settings', function (Blueprint $table) {
             //
-            $table->dropColumn('slack_endpoint');
-            $table->dropColumn('slack_channel');
-            $table->dropColumn('slack_botname');
+            $table->dropColumn('webhook_endpoint');
+            $table->dropColumn('webhook_channel');
+            $table->dropColumn('webhook_botname');
         });
     }
 }

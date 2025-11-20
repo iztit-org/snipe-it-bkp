@@ -24,17 +24,17 @@ class AddsWebhookOptionToSettingsTable extends Migration
             $table->string('webhook_selected')->after('slack_botname')->default('slack')->nullable();
         });
 
-        Schema::table('settings', function (Blueprint $table) {
-            $table->renameColumn('slack_botname', 'webhook_botname');
-        });
+        // Schema::table('settings', function (Blueprint $table) {
+        //     $table->renameColumn('slack_botname', 'webhook_botname');
+        // });
 
-        Schema::table('settings', function (Blueprint $table) {
-            $table->renameColumn('slack_endpoint', 'webhook_endpoint');
-        });
+        // Schema::table('settings', function (Blueprint $table) {
+        //     $table->renameColumn('slack_endpoint', 'webhook_endpoint');
+        // });
 
-        Schema::table('settings', function (Blueprint $table) {
-            $table->renameColumn('slack_channel', 'webhook_channel');
-        });
+        // Schema::table('settings', function (Blueprint $table) {
+        //     $table->renameColumn('slack_channel', 'webhook_channel');
+        // });
     }
 
     /**
@@ -46,9 +46,9 @@ class AddsWebhookOptionToSettingsTable extends Migration
     {
         Schema::table('settings', function (Blueprint $table) {
             $table->dropColumn('webhook_selected');
-            $table->renameColumn('webhook_botname', 'slack_botname');
-            $table->renameColumn('webhook_endpoint', 'slack_endpoint');
-            $table->renameColumn('webhook_channel', 'slack_channel');
+            // $table->renameColumn('webhook_botname', 'slack_botname');
+            // $table->renameColumn('webhook_endpoint', 'slack_endpoint');
+            // $table->renameColumn('webhook_channel', 'slack_channel');
         });
     }
 }
