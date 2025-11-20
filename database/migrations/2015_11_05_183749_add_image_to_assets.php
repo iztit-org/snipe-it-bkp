@@ -24,9 +24,9 @@ class AddImageToAssets extends Migration
          * field already exists. Thanks, I hate it. - snipe
          */
         Schema::table('assets', function (Blueprint $table) {
-            if (!Schema::hasColumn('assets', 'image')) {
+            // if (!Schema::hasColumn('assets', 'image')) {
                 $table->text('image')->after('notes')->nullable()->default(null);
-            }
+            // }
         });
     }
 
