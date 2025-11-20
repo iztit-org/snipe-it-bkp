@@ -65,9 +65,9 @@ class DenormalizedEolAndAddColumnForExplicitDateToAssets extends Migration
      */
     public function down()
     {
-        Schema::table('assets', function (Blueprint $table) {
-            $table->dropColumn('eol_explicit');
-        });
+        // Schema::table('assets', function (Blueprint $table) {
+        //     $table->dropColumn('eol_explicit');
+        // });
     }
 
     /**
